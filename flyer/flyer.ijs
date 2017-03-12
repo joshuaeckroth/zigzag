@@ -1,3 +1,5 @@
+load '~addons/graphics/fvj4/dwin.ijs'
+
 fmod =: 4 : 'x - ((<. x%y) * y)'
 
 hsv2rgb =: monad define
@@ -38,6 +40,13 @@ glpen 4 1
 gllines <.0.5+,Y
 ' '[glpaint ''
 )
+
+mp =: +/ . *
+load 'trig'
+rotm =: (cos , sin , 0:) , (-@sin , cos , 0:) ,: 0 , 0 , 1:
+scale =: 3 : '(y,0 0), (0,y,0),: 0 0 1'
+trans =: 3 : '1 0 0, 0 1 0,: (y,1)'
+
 
 curve =: ((|: (0.5 -~ (%180) * i.180) ,: ((|. (^0.075*i.90)), (^0.075*i.90))%400) ,. 1)
 
